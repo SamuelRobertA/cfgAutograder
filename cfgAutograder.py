@@ -105,23 +105,25 @@ def check_logic(code):
 
 # function to print the analysis reports
 def report():
+    s = ""
     # prints the syntax errors if arrays is not empty
     if errors:
-        print("Errors Found:")
+        s += "Errors Found: \n"
         for error in errors:
-            print(error)
+            s += error + '\n'
     # else prints that there were no errors
     else:
-        print("No syntax errors found")
+        s += "No syntax errors found \n"
 
     # prints the logical errors if arrays is not empty
     if logical_issues:
-        print("Logical Issues Found:")
+        s += "Logical Issues Found: \n"
         for logical_issue in logical_issues:
-            print(logical_issue)
+            s += logical_issue + '\n'
     # else prints that there were no errors
     else:
-        print("No logical issues were found")
+        s += "No logical issues were found \n"
+    return s
 
 
 # converts the code from a text file to a string
@@ -141,9 +143,4 @@ def analyse_code(code):
     # checks for syntax and logic
     check_syntax(code)
     check_logic(code)
-    # prints the analysis report with errors
-    report()
 
-
-# calls the function to analyse the code
-# analyse_code(code_conversion())
