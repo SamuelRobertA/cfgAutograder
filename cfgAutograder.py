@@ -117,12 +117,12 @@ def report():
 
     # prints the logical errors if arrays is not empty
     if logical_issues:
-        s += "Logical Issues Found: \n"
+        s += "\nLogical Issues Found: \n"
         for logical_issue in logical_issues:
             s += logical_issue + '\n'
     # else prints that there were no errors
     else:
-        s += "No logical issues were found \n"
+        s += "\nNo logical issues were found \n"
     return s
 
 
