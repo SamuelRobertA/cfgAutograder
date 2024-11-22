@@ -18,8 +18,20 @@ frame.grid()
 # to add the text widget to display the output in the window
 text_widget = tk.Text(root, height=30, width=100)
 # sets the position on the grid frame
-text_widget.grid(column=0, row=1, padx=20, pady=20)
+text_widget.grid(column=0, row=3, padx=20, pady=20)
 
+# Add a label to display the project name and team members
+project_info = """CFG Autograder Project
+Group Name : Logic Labs
+Team Members:
+1. Md Sabab Ur Rahman
+2. Samuel Robert Antony Flay
+3. Vishmi Kumara
+4. Clelya Foumo
+"""
+info_label = ttk.Label(root, text=project_info, justify="center", font=("Arial", 12))
+# Position the label at the top of the GUI
+info_label.grid(column=0, row=0, padx=10, pady=10)
 
 # opens the dialog to open a file from the computer
 def select_file():
@@ -57,8 +69,10 @@ open_button = ttk.Button(
     command=select_file
 )
 
-# sets the position on the grid frame
-open_button.grid(column=0, row=0, padx=10)
+# Make the button larger and position it lower
+open_button.config(width=20, padding=(10, 5))
+# sets the position on the grid frame, with more padding
+open_button.grid(column=0, row=1, padx=10, pady=20)
 
 
 # opens the file and calls the analyse code and code conversion from cfgAutograder file
