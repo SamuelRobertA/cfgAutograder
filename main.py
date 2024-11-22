@@ -1,16 +1,49 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+import tkinter as tk
+from tkinter import filedialog as fd
+from tkinter import messagebox as mb
+from tkinter import ttk
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+root = tk.Tk()
+root.title("Tkinter Open File Dialog")
+root.resizable(width=False, height=False)
+root.geometry("300x150")
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+
+def select_file():
+    filetypes = (
+        ('Text files', '*.txt'),
+        ('All files', '*.*')
+    )
+
+    filename = fd.askopenfilename(
+        title='Open a file',
+        initialdir='/',
+        filetypes=filetypes
+    )
+
+    mb.showinfo(
+        title='Selected File',
+        message=filename
+    )
+
+    open_file(filename)
+    print("This Analysis Report is of", filename, '\n\n')
+
+
+open_button = ttk.Button(
+    root,
+    text='Open a File',
+    command=select_file
+)
+
+open_button.pack(expand=True)
+
+
+def open_file(filename):
+    import cfgAutograder
+    cfgAutograder.analyse_code(cfgAutograder.code_conversion(filename))
+
+
+root.mainloop()
+

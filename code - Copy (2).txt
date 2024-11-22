@@ -1,0 +1,16 @@
+i = 0
+for i in range(10):
+    if i % 2 == 0:
+        print(i)
+    else:
+        print ("Odd number:", i)
+
+while True:
+    y = 3
+    if y == 5:
+    print("y is 5")
+    break
+
+def report():
+    a = b
+    return
